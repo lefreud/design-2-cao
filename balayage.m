@@ -28,20 +28,28 @@ function balayage(parametreChoisi)
     % Affichage
     justesses = [];
     T_stabilisations = [];
+    precisions = [];
     for i = 1:length(valeursParametre)
         justesses(i) = sortiesSimulations(i).justesse;
         T_stabilisations(i) = sortiesSimulations(i).T_stabilisation;
+        precisions(i) = sortiesSimulations(i).precision;
     end
-    subplot(2,1,1);
+    subplot(3,1,1);
     plot(valeursParametre, justesses, "o-");
     title("Justesse en fonction de " + parametreChoisi, "Interpreter", "none");
     xlabel(parametreChoisi, "Interpreter", "none");
     ylabel("Justesse", "Interpreter", "none");
 
-    subplot(2,1,2);
+    subplot(3,1,2);
     plot(valeursParametre, T_stabilisations, "o-");
     title("Temps de stabilisation en fonction de " + parametreChoisi, "Interpreter", "none");
     xlabel(parametreChoisi, "Interpreter", "none");
     ylabel("Temps de stabilisation [s]", "Interpreter", "none");
+
+    subplot(3,1,3);
+    plot(valeursParametre, precisions, "o-");
+    title("Précision en fonction de " + parametreChoisi, "Interpreter", "none");
+    xlabel(parametreChoisi, "Interpreter", "none");
+    ylabel("Précision [g]", "Interpreter", "none");
 
 end
